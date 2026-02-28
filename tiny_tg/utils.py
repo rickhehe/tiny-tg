@@ -1,16 +1,13 @@
 # utils.py
 import os
 from pathlib import Path
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 
-# Load .env file once at module level
-env_path = find_dotenv()
-if env_path:
+# 1. Attempt to load .env if it exists (for your Raspberry Pi / Local dev)
+# 2. If it doesn't exist, don't raise an error. The OS environment might already have the keys.
+env_path = Path('.') / '.env'
+if env_path.exists():
     load_dotenv(env_path)
-else:
-    raise FileNotFoundError(
-        "No .env file found. Please create a .env file in the project root with required configuration."
-    )
 
 def get_config(key: str, required: bool = True) -> str | None:
     """Get configuration value from environment"""
