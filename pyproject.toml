@@ -1,6 +1,6 @@
 [project]
 name = "tiny-tg"
-version = "0.1.0"
+version = "0.1.1"
 description = "Simple Telegram notification library"
 authors = [{name = "rickhehe", email = "rick@rickhehe.com"}]
 license = {text = "MIT"}
